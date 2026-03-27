@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #020617, #0f172a, #1e3a8a);
+    color: #e2e8f0;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav h2 {
+    color: #38bdf8;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 140px 20px;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.typing {
+    color: #38bdf8;
+    border-right: 2px solid #38bdf8;
+}
+
+/* Sections */
+section {
+    padding: 70px 60px;
+    scroll-margin-top: 100px;
+}
+
+/* Card */
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    margin: 20px 0;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    color: #38bdf8;
+    margin-bottom: 20px;
+}
+
+/* Skills */
+.skills li {
+    margin-bottom: 10px;
+}
+
+/* Button */
+.btn {
+    background:#38bdf8;
+    padding:10px 20px;
+    border-radius:8px;
+    color:black;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body id="top">
+
+<nav>
+    <h2>Portfolio</h2>
+    <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>Hi, I'm <span>V.LOGASHREE</span></h1>
+    <h3 class="typing" id="typing"></h3>
+
+    <div style="margin-top:20px;">
+        <a href="c:\Users\logas\Downloads\shree_resAts.pdf" download class="btn">Download Resume</a>
+    </div>
+</div>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+       <p>
+Hi, I’m a passionate Full Stack Developer with a strong focus on frontend development 
+and a solid understanding of backend technologies. I specialize in building responsive, 
+user-friendly interfaces and delivering clean, efficient code.
+</p>
+
+<p>
+Along with my frontend expertise, I have intermediate experience in backend development 
+and continuously work on improving my full stack capabilities.
+</p>
+
+<p>
+I am a quick learner and enjoy solving real-world problems through technology.
+</p>
+    </div>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="card">
+        <ul class="skills">
+            <li><b>Frontend:</b> HTML, CSS, JavaScript, React</li>
+            <li><b>Design:</b> Canva, Photoshop</li>
+            <li><b>Tools:</b> Git, VS Code</li>
+        </ul>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+        <h3>🚀 Portfolio Website</h3>
+        <p>Personal portfolio to showcase my skills.</p>
+        <p><b>Tech:</b> HTML, CSS, JS</p>
+    </div>
+
+    <div class="card">
+        <h3>🔐 Login System</h3>
+        <p>Simple login & signup system.</p>
+        <p><b>Tech:</b> HTML, CSS, JS</p>
+    </div>
+
+    <div class="card">
+        <h3>🛒 Mini E-commerce</h3>
+        <p>Product listing UI project.</p>
+        <p><b>Tech:</b> React</p>
+    </div>
+
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: <a href="mailto:logashree@gmail.com" style="color:#38bdf8;">logashree@gmail.com</a></p>
+        <p>Phone: <a href="tel:6369161979" style="color:#38bdf8;">6369161979</a></p>
+        <p>linkden: <a href="lin:https://www.linkedin.com/in/logashree-v0524" style="color:#38bdf8">https://www.linkedin.com/in/logashree-v0524</a></p>
+       
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 logashree | Built with ❤️</p>
+</footer>
+
+<script>
+const text = ["Designer", "Frontend Developer","Creative Thinker"];
+let i = 0, j = 0, currentText = "", isDeleting = false;
+
+function type() {
+    currentText = text[i];
+    document.getElementById("typing").textContent = currentText.substring(0, j);
+
+    if(!isDeleting && j < currentText.length) j++;
+    else if(isDeleting && j > 0) j--;
+    else {
+        isDeleting = !isDeleting;
+        if(!isDeleting) i = (i + 1) % text.length;
+    }
+
+    setTimeout(type, isDeleting ? 50 : 100);
+}
+type();
+</script>
+
+</body>
+</html>
